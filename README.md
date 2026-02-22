@@ -15,18 +15,3 @@ Every operation in this library creates a new `Value` object that remembers its 
 1. **Forward Pass:** Compute the numerical result of an expression.
 2. **Backward Pass:** Starting from the output, apply the **Chain Rule** recursively to compute the gradient for every internal variable.
 
-## Quick Start
-```python
-from engine import Value
-
-# Define inputs
-a = Value(2.0)
-b = Value(-3.0)
-
-# Build an expression
-c = a * b + 10
-
-# Manual verification (Forward pass)
-print(c.data) # Output: 4.0
-
-# Coming soon: c.backward() to compute gradients!
