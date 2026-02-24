@@ -6,7 +6,6 @@ class Value:
         self.data = data      
         self.grad = 0.0 
         self._backward = lambda: None      
-        
         self._prev = set(_children)  
         self._op = _op  
     
@@ -15,6 +14,8 @@ class Value:
         return f"Value(data={self.data})"
     
     def __add__(self, other):
+        other = other if isinstance(other, Value) else Value(other)
+
         out_data = self.data + other.data
         out = Value (out_data,(self,other),'+') # Record the operation that created this node
 
@@ -28,6 +29,8 @@ class Value:
         return out
     
     def __mul__(self, other):
+        other = other if isinstance(other, Value) else Value(other)
+
         out_data=self.data * other.data
         out = Value (out_data,(self,other),'*') # Record the operation that created this node
 
@@ -72,6 +75,8 @@ class Value:
         out._backward = _backward
 
         return out
+    
+    
 
 
 

@@ -10,11 +10,11 @@ y = d + c
 
 y.backward()
 
-print("y 的梯度:", y.grad)
-print("c 的梯度:", c.grad)
-print("d 的梯度:", d.grad)
-print("a 的梯度:", a.grad)
-print("b 的梯度:", b.grad)
+print("y_grad:", y.grad)
+print("c_grad:", c.grad)
+print("d_grad:", d.grad)
+print("a_grad:", a.grad)
+print("b_grad:", b.grad)
 
 
 '''
