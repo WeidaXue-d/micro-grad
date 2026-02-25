@@ -25,9 +25,12 @@ class Value:
             other.grad += 1.0 * out.grad
         
         out._backward = _backward
-
         return out
     
+    def __radd__(self, other):
+            return self + other
+        
+           
     def __neg__(self):
         return self * -1
     
@@ -46,8 +49,10 @@ class Value:
             other.grad += self.data * out.grad
         
         out._backward = _backward
-            
         return out
+    
+    def __rmul__(self, other):
+        return self * other
     
     def __pow__(self, other):
         assert isinstance (other,(int,float))
@@ -59,8 +64,9 @@ class Value:
         
         out._backward = _backward
 
-    
+        return out
 
+    
     def backward(self):
         topo=[]
         visited=set()    # list for record
@@ -94,6 +100,9 @@ class Value:
         out._backward = _backward
 
         return out
+    
+
+   
     
     
     
