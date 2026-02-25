@@ -1,17 +1,19 @@
-# micro-autograd 🧠
+# micro-autograd 
 
 A tiny, scalar-valued Autograd engine and Neural Network library built from scratch in pure Python. 
 
 This project implements backpropagation (reverse-mode autodiff) over a dynamically built directed acyclic graph (DAG). It is designed to be a transparent, educational, and fully functional deep learning framework that strips away the complexity of modern libraries (like PyTorch) to reveal the pure mathematical and programmatic beauty of machine learning.
 
-## 🚀 Features
+Inspired by Andrej Karpathy's micrograd
+
+##  Features
 
 - **Custom Autograd Engine (`engine.py`)**: Implements a `Value` object that wraps standard scalar values and tracks their gradient and mathematical lineage.
 - **Dynamic Computation Graph**: Automatically builds a DAG of mathematical operations (`+`, `-`, `*`, `**`, `tanh`).
 - **Topological Sorting**: Uses post-order traversal to guarantee the correct application of the Chain Rule during backpropagation.
 - **Neural Network API (`nn.py`)**: An object-oriented API featuring `Neuron` (more components like `Layer` and `MLP` can be seamlessly integrated).
 
-## 🛠️ Quick Start: Training a Single Neuron
+##  Quick Start: Training a Single Neuron
 
 Here is a complete example of how to use `micro-autograd` to train a single neuron using Gradient Descent. We force a randomly initialized neuron to output exactly `1.0` when given the inputs `[2.0, 3.0]`.
 
